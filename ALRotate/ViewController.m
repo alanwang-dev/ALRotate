@@ -15,7 +15,7 @@
 
 #define kSystemVersion      [[[UIDevice currentDevice] systemVersion] floatValue]
 #define IOS8_OR_LATER       (kSystemVersion >= 8)
-
+#define kStreamRUL            @"rtmp://test.uplive.ks-cdn.com/live/abc"
 // How To Stay a View in UIViewController Which AutoRotateMode is YES
 
 @interface ViewController ()
@@ -36,7 +36,11 @@
     _bgView = [[UIView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_bgView];
     
+    // 开启预览
     [_kit startPreview:_bgView];
+    
+    // 开始推流
+    [_kit.streamerBase startStream:[NSURL URLWithString:kStreamRUL]];
 }
 
 #pragma mark - UIViewController Rotation
@@ -90,6 +94,9 @@
         }
         strongSelf.bgView.frame = strongSelf.bgView.superview.bounds;
     }];
+    
+    // 旋转推流方向
+    [_kit rotateStreamTo:toInterfaceOrientation];
 }
 
 
@@ -149,6 +156,9 @@
         }
         strongSelf.bgView.frame = strongSelf.bgView.superview.bounds;
     }];
+    
+    // 旋转推流方向
+    [_kit rotateStreamTo:(UIInterfaceOrientation)toDeviceOrientation];
 }
 
 - (BOOL)shouldAutorotate{
