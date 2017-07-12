@@ -19,7 +19,7 @@
     [super viewDidLoad];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (IBAction)didClickPreviewBtn:(UIButton *)sender {
     ALLiveVC *rotateVC = [[ALLiveVC alloc] init];
     [self presentViewController:rotateVC animated:YES completion:nil];
 }
