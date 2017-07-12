@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ALRotateVC.h"
+#import "ALLiveVC.h"
 
 @interface ViewController ()
 
@@ -20,7 +20,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    ALRotateVC *rotateVC = [[ALRotateVC alloc] init];
+    ALLiveVC *rotateVC = [[ALLiveVC alloc] init];
     [self presentViewController:rotateVC animated:YES completion:nil];
 }
 

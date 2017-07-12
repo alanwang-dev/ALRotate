@@ -1,12 +1,12 @@
 //
-//  ALRotateVC.m
+//  ALLiveVC.m
 //  ALRotate
 //
-//  Created by iVermisseDich on 2017/3/20.
+//  Created by iVermisseDich on 2017/7/12.
 //  Copyright © 2017年 com.ksyun. All rights reserved.
 //
 
-#import "ALRotateVC.h"
+#import "ALLiveVC.h"
 #import <libksygpulive/libksygpulive.h>
 #import "KSYGPUStreamerkit.h"
 
@@ -16,16 +16,16 @@
 #define kSystemVersion      [[[UIDevice currentDevice] systemVersion] floatValue]
 #define IOS8_OR_LATER       (kSystemVersion >= 8)
 #define kStreamRUL            @"rtmp://test.uplive.ks-cdn.com/live/abc"
-// How To Stay a View in UIViewController Which AutoRotateMode is YES
 
-@interface ALRotateVC ()
+// 是否开启动态旋转
+#define kUseAutoRotate NO
 
+@interface ALLiveVC ()
 @property (nonatomic) UIView *bgView;
 @property (nonatomic) KSYGPUStreamerKit *kit;
-
 @end
 
-@implementation ALRotateVC
+@implementation ALLiveVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +35,7 @@
     
     _bgView = [[UIView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_bgView];
-    
+    [self.view sendSubviewToBack:_bgView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -47,8 +47,6 @@
     [_kit startPreview:_bgView];
     
     [_kit setStreamOrientation:[UIApplication sharedApplication].statusBarOrientation];
-    // 开始推流
-    [_kit.streamerBase startStream:[NSURL URLWithString:kStreamRUL]];
 }
 
 - (void)layoutUI{
@@ -68,16 +66,22 @@
         newTransform = CGAffineTransformMakeRotation(M_PI_2*(currentInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ? 1 : -1));
         newFrame = CGRectMake(0, 0, maxLength, minLength);
     }
-
+    
     _bgView.transform = newTransform;
     _bgView.frame = newFrame;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [_kit.streamerBase stopStream];
-    [_kit.vCapDev stopCameraCapture];
-    _kit = nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
+#pragma mark - Actions
+- (IBAction)didClickStreamBtn:(UIButton *)sender {
+    // 开始推流
+    [_kit.streamerBase startStream:[NSURL URLWithString:kStreamRUL]];
+}
+
+- (IBAction)didClickRotateBtn:(UIButton *)sender {
+    // 向右旋转
+    UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait ? UIInterfaceOrientationLandscapeLeft: UIInterfaceOrientationPortrait;
+    [[UIApplication sharedApplication] setStatusBarOrientation:orient];
+    [_kit rotateStreamTo:orient];
 }
 
 #pragma mark - UIViewController Rotation
@@ -198,7 +202,7 @@
 }
 
 - (BOOL)shouldAutorotate{
-    return YES;
+    return kUseAutoRotate;
 }
 
 @end

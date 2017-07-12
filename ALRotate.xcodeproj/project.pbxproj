@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C31505A41F164070008B6458 /* ALLiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C31505A21F164070008B6458 /* ALLiveVC.m */; };
+		C31505A51F164070008B6458 /* ALLiveVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C31505A31F164070008B6458 /* ALLiveVC.xib */; };
 		C32630601E7BF033004265FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C326305F1E7BF033004265FC /* main.m */; };
 		C32630631E7BF033004265FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C32630621E7BF033004265FC /* AppDelegate.m */; };
 		C32630661E7BF033004265FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32630651E7BF033004265FC /* ViewController.m */; };
 		C32630691E7BF034004265FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32630671E7BF034004265FC /* Main.storyboard */; };
 		C326306B1E7BF034004265FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C326306A1E7BF034004265FC /* Assets.xcassets */; };
 		C326306E1E7BF034004265FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C326306C1E7BF034004265FC /* LaunchScreen.storyboard */; };
-		C32630771E7F743D004265FC /* ALRotateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C32630761E7F743D004265FC /* ALRotateVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C31505A11F164070008B6458 /* ALLiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALLiveVC.h; sourceTree = "<group>"; };
+		C31505A21F164070008B6458 /* ALLiveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALLiveVC.m; sourceTree = "<group>"; };
+		C31505A31F164070008B6458 /* ALLiveVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALLiveVC.xib; sourceTree = "<group>"; };
 		C326305B1E7BF033004265FC /* ALRotate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALRotate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C326305F1E7BF033004265FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C32630611E7BF033004265FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,8 +31,6 @@
 		C326306A1E7BF034004265FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C326306D1E7BF034004265FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C326306F1E7BF034004265FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C32630751E7F743D004265FC /* ALRotateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRotateVC.h; sourceTree = "<group>"; };
-		C32630761E7F743D004265FC /* ALRotateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRotateVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +67,9 @@
 				C32630621E7BF033004265FC /* AppDelegate.m */,
 				C32630641E7BF033004265FC /* ViewController.h */,
 				C32630651E7BF033004265FC /* ViewController.m */,
-				C32630751E7F743D004265FC /* ALRotateVC.h */,
-				C32630761E7F743D004265FC /* ALRotateVC.m */,
+				C31505A11F164070008B6458 /* ALLiveVC.h */,
+				C31505A21F164070008B6458 /* ALLiveVC.m */,
+				C31505A31F164070008B6458 /* ALLiveVC.xib */,
 				C32630671E7BF034004265FC /* Main.storyboard */,
 				C326306A1E7BF034004265FC /* Assets.xcassets */,
 				C326306C1E7BF034004265FC /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 				C326306E1E7BF034004265FC /* LaunchScreen.storyboard in Resources */,
 				C326306B1E7BF034004265FC /* Assets.xcassets in Resources */,
 				C32630691E7BF034004265FC /* Main.storyboard in Resources */,
+				C31505A51F164070008B6458 /* ALLiveVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,9 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C32630771E7F743D004265FC /* ALRotateVC.m in Sources */,
 				C32630661E7BF033004265FC /* ViewController.m in Sources */,
 				C32630631E7BF033004265FC /* AppDelegate.m in Sources */,
+				C31505A41F164070008B6458 /* ALLiveVC.m in Sources */,
 				C32630601E7BF033004265FC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
